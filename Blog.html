@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — My Personal Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .page-header {
+    background: var(--color-dark);
+    padding: 160px 0 70px;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-family: var(--font-display);
+    color: #fff;
+    font-size: 2.6rem;
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin: 70px 0 110px;
+  }
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" style="position:relative;background:var(--color-dark);">
+  <div class="wrap">
+    <div class="site-header__social">
+      <a href="#" aria-label="Twitter">𝕏</a>
+      <a href="#" aria-label="Instagram">◎</a>
+    </div>
+    <div class="site-header__brand">The<br><span>Quiet</span> Notebook</div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-header">
+  <h1>Blog</h1>
+</section>
+
+<div class="wrap">
+  <div class="blog-grid">
+
+    <!-- ====================================================== -->
+    <!-- ONE POST = ONE BLOCK LIKE THIS. To add a new post,       -->
+    <!-- copy everything from <article> to </article> below,     -->
+    <!-- paste it ABOVE this comment block, then edit the         -->
+    <!-- image, title, text, and href link.                       -->
+    <!-- ====================================================== -->
+
+    <article class="post-card">
+      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80" alt="Post image">
+      <h3><a href="post-1.html">Replace this with your post title</a></h3>
+      <p>Write a one or two sentence summary of the post here. This shows up as the preview text.</p>
+    </article>
+
+    <article class="post-card">
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80" alt="Post image">
+      <h3><a href="post-2.html">Another sample post title</a></h3>
+      <p>Another short summary goes here. Keep it brief — a sentence or two.</p>
+    </article>
+
+    <article class="post-card">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&q=80" alt="Post image">
+      <h3><a href="post-3.html">A third sample post title</a></h3>
+      <p>This is placeholder text. Delete this whole card if you don't need it yet.</p>
+    </article>
+
+    <!-- ====================================================== -->
+    <!-- END OF POST LIST                                         -->
+    <!-- ====================================================== -->
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>The Quiet Notebook</h4>
+      <p>A personal blog.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <p>Home · Blog · About · Contact</p>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <p>Twitter · Instagram</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
