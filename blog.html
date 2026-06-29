@@ -1,12 +1,15 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — My Personal Blog</title>
+<title>Blog — {{ site.title }}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/style.css">
 <style>
   .page-header {
     background: var(--color-dark);
@@ -40,10 +43,10 @@
     </div>
     <div class="site-header__brand">The<br><span>Quiet</span> Notebook</div>
     <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="/">Home</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -53,37 +56,8 @@
 </section>
 
 <div class="wrap">
-  <div class="blog-grid">
-
-    <!-- ====================================================== -->
-    <!-- ONE POST = ONE BLOCK LIKE THIS. To add a new post,       -->
-    <!-- copy everything from <article> to </article> below,     -->
-    <!-- paste it ABOVE this comment block, then edit the         -->
-    <!-- image, title, text, and href link.                       -->
-    <!-- ====================================================== -->
-
-    <article class="post-card">
-      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80" alt="Post image">
-      <h3><a href="post-1.html">Replace this with your post title</a></h3>
-      <p>Write a one or two sentence summary of the post here. This shows up as the preview text.</p>
-    </article>
-
-    <article class="post-card">
-      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80" alt="Post image">
-      <h3><a href="post-2.html">Another sample post title</a></h3>
-      <p>Another short summary goes here. Keep it brief — a sentence or two.</p>
-    </article>
-
-    <article class="post-card">
-      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&q=80" alt="Post image">
-      <h3><a href="post-3.html">A third sample post title</a></h3>
-      <p>This is placeholder text. Delete this whole card if you don't need it yet.</p>
-    </article>
-
-    <!-- ====================================================== -->
-    <!-- END OF POST LIST                                         -->
-    <!-- ====================================================== -->
-
+  <div class="blog-grid" id="blog-grid">
+    <p style="color:var(--color-text-muted);">Loading posts…</p>
   </div>
 </div>
 
@@ -95,7 +69,7 @@
     </div>
     <div>
       <h4>Navigate</h4>
-      <p><a href="index.html">Home</a> · <a href="blog.html">Blog</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a></p>
+      <p><a href="/">Home</a> · <a href="/blog.html">Blog</a> · <a href="/about.html">About</a> · <a href="/contact.html">Contact</a></p>
     </div>
     <div>
       <h4>Elsewhere</h4>
@@ -103,6 +77,33 @@
     </div>
   </div>
 </footer>
+
+<script>
+async function loadBlogList() {
+  const grid = document.getElementById('blog-grid');
+  try {
+    const res = await fetch('posts/posts.json');
+    const posts = await res.json();
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    if (posts.length === 0) {
+      grid.innerHTML = '<p style="color:var(--color-text-muted);">No posts yet.</p>';
+      return;
+    }
+
+    grid.innerHTML = posts.map(post => `
+      <article class="post-card">
+        <img src="${post.image}" alt="${post.title}">
+        <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
+        <p>${post.excerpt}</p>
+      </article>
+    `).join('');
+  } catch (err) {
+    grid.innerHTML = '<p style="color:var(--color-text-muted);">Could not load posts.</p>';
+  }
+}
+loadBlogList();
+</script>
 
 </body>
 </html>
