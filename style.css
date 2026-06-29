@@ -231,6 +231,48 @@ ul { list-style: none; }
   color: var(--color-text-muted);
 }
 
+/* ---------- Random Clicks ---------- */
+.clicks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 100px;
+}
+
+.clicks-card {
+  display: block;
+  border: 1px solid var(--color-border);
+  padding: 28px 26px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.clicks-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.clicks-card__tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  background: var(--color-accent);
+  padding: 3px 10px;
+  margin-bottom: 14px;
+}
+
+.clicks-card h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.clicks-card p {
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+}
+
 /* ---------- Post cards ---------- */
 .post-grid {
   display: grid;
@@ -319,7 +361,7 @@ ul { list-style: none; }
 @media (max-width: 900px) {
   .site-nav { display: none; }
   .feature-grid__item { flex: 0 0 100%; }
-  .post-grid { grid-template-columns: 1fr; }
+  .post-grid, .clicks-grid { grid-template-columns: 1fr; }
   .feature-panel { padding: 40px 24px; margin-top: -50px; }
   .split-section { grid-template-columns: 1fr; }
   .split-section__image { min-height: 280px; }
