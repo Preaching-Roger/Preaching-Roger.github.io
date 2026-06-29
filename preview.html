@@ -1,0 +1,148 @@
+---
+layout: null
+title: Home
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Personal Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="site-header__social">
+      <a href="#" aria-label="Twitter">𝕏</a>
+      <a href="#" aria-label="Instagram">◎</a>
+    </div>
+    <div class="site-header__brand">The<br><span>Quiet</span> Notebook</div>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80');">
+  <div class="wrap">
+    <div class="hero__content">
+      <h1>Thoughts, Words & Wanderings</h1>
+      <p>A personal record of what I'm reading, building, and thinking about — engineering by day, words and quiet observations by night.</p>
+      <div class="hero__actions">
+        <a href="/blog" class="btn btn--accent">Read the Blog</a>
+        <a href="/about" class="btn btn--dark">About Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="feature-panel">
+    <div class="feature-grid">
+      <div class="feature-grid__item">
+        <div class="icon">📖</div>
+        <h3>Reading Notes</h3>
+        <p>Quotes, reflections, and lines worth keeping from what I've been reading.</p>
+        <a href="/blog" class="link">Browse notes</a>
+      </div>
+      <div class="feature-grid__item">
+        <div class="icon">🏗️</div>
+        <h3>Engineering Log</h3>
+        <p>Notes from coursework, my thesis, and projects in civil engineering.</p>
+        <a href="/blog" class="link">Read posts</a>
+      </div>
+      <div class="feature-grid__item">
+        <div class="icon">🏃</div>
+        <h3>Running</h3>
+        <p>Routes, progress, and the occasional reflection from the road.</p>
+        <a href="/blog" class="link">See entries</a>
+      </div>
+      <div class="feature-grid__item">
+        <div class="icon">🎨</div>
+        <h3>Creative Writing</h3>
+        <p>Short pieces, fragments, and the occasional finished poem.</p>
+        <a href="/blog" class="link">Read writing</a>
+      </div>
+      <div class="feature-grid__item">
+        <div class="icon">🗺️</div>
+        <h3>Maps & Data</h3>
+        <p>Side projects in QGIS, mapping, and visualizing the city around me.</p>
+        <a href="/blog" class="link">View projects</a>
+      </div>
+      <div class="feature-grid__item">
+        <div class="icon">✉️</div>
+        <h3>Get in Touch</h3>
+        <p>Questions, feedback, or just to say hello — I read everything.</p>
+        <a href="/contact" class="link">Contact me</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="section-heading">
+    <h2>Latest Posts</h2>
+    <div class="eyebrow">Recently written</div>
+  </div>
+
+  <div class="post-grid">
+    
+        <img src="/assets/img/placeholder-{{ forloop.index }}.jpg" alt="{{ post.title }}">
+      {% endif %}
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+    </article>
+    {% else %}
+    <article class="post-card">
+      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80" alt="Sample post">
+      <h3><a href="#">A first post, waiting to be written</a></h3>
+      <p>Once you add posts to the _posts folder, they'll show up here automatically.</p>
+    </article>
+    <article class="post-card">
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80" alt="Sample post">
+      <h3><a href="#">Notes from somewhere in between</a></h3>
+      <p>This is placeholder text standing in for a real excerpt from a future post.</p>
+    </article>
+    <article class="post-card">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&q=80" alt="Sample post">
+      <h3><a href="#">On the slow work of finishing things</a></h3>
+      <p>Replace this card by writing and publishing your first real entry.</p>
+    </article>
+    
+  </div>
+</div>
+
+<section class="split-section">
+  <div class="split-section__image" style="background-image:url('https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&q=80');"></div>
+  <div class="split-section__text">
+    <h2>Why I write this down</h2>
+    <p>Partly for myself, partly for anyone who stumbles across it — a place to keep the things I don't want to forget, alongside the things I'm still figuring out.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <h4>The Quiet Notebook</h4>
+      <p>A personal blog.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <p>Home · Blog · About · Contact</p>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <p>Twitter · Instagram</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
