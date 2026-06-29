@@ -177,6 +177,10 @@ ul { list-style: none; }
   gap: 48px 40px;
 }
 
+.feature-grid__item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
 .feature-grid__item {
   text-align: center;
   padding-bottom: 36px;
